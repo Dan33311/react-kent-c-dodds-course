@@ -1,0 +1,54 @@
+<!-- Create a Simple Reusable React Component (video 7) -->
+
+
+<body>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+  <script type="text/babel"> 
+
+    // --- we  create 2 elements, but have the same message "Hello dude-6"---
+    // const message = <div className="message">Hello dude-6</div>
+    // const element = (
+    //   <div className="container">
+    //     {message}
+    //     {message}
+    //   </div>
+    // )
+
+    // two elements, with 2 different messages  
+    // const message = (props) => <div className="message">{props.msg}</div>
+    // const element = (
+    //   <div className="container">
+    //     {message({msg: 'Heyy dude-6'})}
+    //     {message({msg: 'goodbye dude-6'})}
+    //   </div>
+    // )
+
+    // we have to use uppercase in the start name function (=React component)
+    // lets rewrite using JSX
+    // const Message = (props) => <div className="message">{props.msg}</div>
+    // const element = (
+    //   <div className="container">
+    //     <Message msg="Heyy dude-6" />
+    //     <Message msg="goodbye dude-6" />
+    //   </div>
+    // )
+
+    // Now  !important <Message>Hey dude-6 and <Message>goodbye dude-6 ...
+    // ... have different sructure but work the same way (is better the first way)
+    const Message = (props) => <div className="message">{props.children}</div>
+    const element = (
+      <div className="container">
+        <Message>Heyy dude-6</Message>
+        <Message children="goodbye dude-6"/>
+      </div>
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+
+</body>

@@ -1,0 +1,102 @@
+<!-- Render two elements side-by-side with React Fragments (video 6) -->
+
+
+
+<!-- using React.createElements -->
+<!-- <body>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+  <script type="text/babel">  
+    const spanUno = React.createElement('span', null, 'Heyyy')
+    const spanDos = React.createElement('span', null, 'dude-5.1')
+    const element = React.createElement(
+      React.Fragment, 
+      null, 
+      spanUno,
+      ' ', 
+      spanDos,
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+
+</body> -->
+
+<!-- my notes:
+  linea 16: React.createElememt( elemento a crear, propiedades, children1, children2 ) 
+
+-->
+
+
+<!-- using JSX -->
+<body>
+
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+  <script type="text/babel">  
+    
+    const element = (
+      <React.Fragment>
+        <span>Hey</span>  <span>dude-5</span>
+      </React.Fragment>
+    )
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+
+</body>
+
+
+<!-- 
+  <React.Fragment></React.Fragment>   // special React Tag
+  <>  </>  = special sintax = to <React.Fragment> 
+
+-->
+
+
+<!-- Practice 1: -->
+
+<!-- crear dos elementos hermanos 
+  crear un ejemplo con React.createElement() y otro con JSX (practice 2),    
+-->
+
+<!-- <body>
+  
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+  <script type="text/babel">
+  
+    !! DONE
+
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+
+</body> -->
+
+<!-- Practice 2: using JSX -->
+<!-- <body>
+  
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+  <script type="text/babel">
+    
+  
+    ReactDOM.render(element, document.getElementById('root'))
+  </script>
+
+</body> -->

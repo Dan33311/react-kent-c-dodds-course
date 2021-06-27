@@ -1,6 +1,6 @@
-<!-- Create a User Interface with React’s createElement API -->
+<!-- Create a User Interface with React’s createElement API (video 3) -->
 
-<body>
+<!-- <body>
 
   <div id="root"></div>
 
@@ -23,7 +23,7 @@
     // rootElement.appendChild(element)
   </script>
 
-</body>
+</body> -->
 
 
 <!-- Asi se veria el body el div de id root ahora 
@@ -47,4 +47,28 @@ lo puedo implementar dentro del objeto del segundo parametro de React.createElem
 o como tercer parametro de React.createElement() 
 
 puedo crear elementos dentro de elementos (linea 16) -->
+
+
+
+
+<body>
+  
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+
+  <script type="text/javascript">
+  
+    const rootElement = document.getElementById('root')
+    const element = React.createElement('div', {
+      children: 'Heyyyyy dudes',
+      className: 'container',
+    })
+
+    ReactDOM.render(element, rootElement)
+
+  </script>
+
+</body>
 
