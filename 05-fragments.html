@@ -33,7 +33,7 @@
 
 
 <!-- using JSX -->
-<body>
+<!-- <body>
 
   <div id="root"></div>
 
@@ -51,7 +51,7 @@
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 
-</body>
+</body> -->
 
 
 <!-- 
@@ -67,7 +67,7 @@
   crear un ejemplo con React.createElement() y otro con JSX (practice 2),    
 -->
 
-<!-- <body>
+<body>
   
   <div id="root"></div>
 
@@ -77,12 +77,21 @@
 
   <script type="text/babel">
   
-    !! DONE
+    const firstElement = React.createElement('span', null, 'Heyy')
+    const secondElement = React.createElement('span', null, 'dude-5')
+
+    const element = React.createElement(
+      React.Fragment,
+      null,
+      firstElement,
+      ' ',
+      secondElement,
+    )
 
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 
-</body> -->
+</body>
 
 <!-- Practice 2: using JSX -->
 <!-- <body>
