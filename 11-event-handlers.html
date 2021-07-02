@@ -1,0 +1,85 @@
+
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    const rootElement = document.getElementById('root')
+
+    const state = { eventCount: 0, username: '' }
+
+    function App() {
+      function handleClick() {
+        setState({ eventCount: state.eventCount + 1})
+      }
+      function handleChange(event) {
+        setState({username: event.target.value})
+      }
+      return (
+        <div>
+          <p>There have been {state.eventCount} events</p>
+          <p>
+            <button onClick={handleClick}>Click Me</button>
+          </p>  
+          <p>You typed: {state.username}</p>
+          <p>
+            <input onChange={handleChange} />         
+          </p>
+        </div>   
+      )
+    }
+
+    function setState(newState) {
+      Object.assign(state, newState)
+      renderApp()
+    }
+
+    function renderApp() {
+      ReactDOM.render(< App/>, rootElement)
+    }
+
+    renderApp()
+
+  </script>
+</body>
+
+
+
+<!-- 
+  <button 
+    onClick={() => setState({ eventCount: state.eventCount + 1})}
+  >Click Me</button>
+  // Para manejar eventos, en este caso mu cuenta los click en el boton.
+
+  // SIMPLIFICANDO => creo una funcion para el evento
+  function handleClick() {
+    setState({ eventCount: state.eventCount + 1})
+  }
+  // luego la llamo en el onClick
+  <button onClick={handleClick}>Click Me</button>
+-->
+
+
+<!--  
+  <p> 
+    <input onBlur={event => setState({username: event.target.value})} />
+  </p>
+  Actua en la caja del input, escribo algun nombre o valor y cuando
+  doy click fuera del input lo registra y muestra donde le indique:
+   <p>You typed: {state.username}</p>
+-->
+
+
+
+<!-- TO STUDY:
+Object.assign() -->
+
+
+<!-- Supported Events (List)
+  https://reactjs.org/docs/events.html -->
+
+
+<!-- Practice: 
+Recreate the code in order to practice -->
