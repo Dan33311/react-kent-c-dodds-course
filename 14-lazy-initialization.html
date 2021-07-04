@@ -1,4 +1,4 @@
-<!-- Manage side-effects in a React Component with the useEffect hook (video 12) -->
+<!-- Use a lazy initializer with useState (video 13) -->
 
 
 <body>
@@ -7,10 +7,9 @@
   <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
-    function Greeting() {     
+    function Greeting() {
       const [name, setName] = React.useState(
-        console.log('test'),
-        window.localStorage.getItem('name') || '',
+        () => window.localStorage.getItem('name') || ''
       )
 
       React.useEffect(() => {
@@ -25,7 +24,7 @@
             <label htmlFor="name">Name: </label>
             <input value={name} onChange={handleChange} id="name" />
           </form>
-          {name ? `Hello ${name}` : 'Please type your name'}
+          {name ? <strong>Hello {name}</strong> : 'Please type your name'}
         </div>
       )
     }
@@ -33,5 +32,3 @@
     ReactDOM.render(<Greeting />, document.getElementById('root'))
   </script>
 </body>
-
-
