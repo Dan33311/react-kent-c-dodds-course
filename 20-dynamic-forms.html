@@ -1,6 +1,3 @@
-<!-- Make Basic Forms with React (video 18) -->
-
-
 <body>
   <div id="root"></div>
   <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
@@ -8,19 +5,29 @@
   <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
   <script type="text/babel">
     function UsernameForm() {
+      const [username, setUsername] = React.useState('')
+      const isLowerCase = username === username.toLowerCase()
+      const error = isLowerCase ? null : 'Username must be lower case'
+
       function handleSubmit(event) {
         event.preventDefault()
-        const username = event.target.elements.usernameInput.value
         alert(`You entered: ${username}`)
+      }
+
+      function handleChange(event) {
+        setUsername(event.target.value)
       }
 
       return (
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="usernameInput">Username:</label>
-            <input id="usernameInput" type="text" />
+            <input id="usernameInput" type="text" onChange={handleChange} />
           </div>
-          <button type="submit">Submit</button>
+          <div style={{color: 'red'}}>{error}</div>
+          <button disabled={Boolean(error)} type="submit">
+            Submit
+          </button>
         </form>
       )
     }
@@ -28,9 +35,3 @@
     ReactDOM.render(<UsernameForm />, document.getElementById('root'))
   </script>
 </body>
-
-
-<!-- Practice:
-Make a basic form by following the code explained above
--->
-
