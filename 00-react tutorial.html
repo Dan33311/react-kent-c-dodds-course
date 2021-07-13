@@ -1,0 +1,47 @@
+
+<!-- Props -->
+
+
+<!-- Props exercise #3  https://react-tutorial.app/app.html?id=385
+Button I
+Fix the Button component such that it renders the button with class:
+
+class="btn-small" for <Button size="small" />
+class="btn-large" for <Button size="large" />
+class="btn-medium" for <Button /> -->
+
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    function Button(props){
+      // correct using normal if
+      const size = props.size
+      let className = "btn-medium"
+
+      if (size === "small") {
+          className = "btn-small"
+      } else if (size === "large") {
+          className = "btn-large"
+      }
+      return <button className={className}>Text here</button>;
+
+      // incorrect (mi solucion)
+      return <button className={`${props.size} ? "btn-${props.size}" : "btn-medium"`}>Text here</button>;
+
+      // correct
+      return <button className={`${props.size ? "btn-" + props.size : "btn-medium"}`}>Text here</button>
+    }
+    const root = document.querySelector("#react-root");
+    ReactDOM.render(<Button size="small" />, document.getElementById('root'))
+  </script>
+</body>
+
+
+
+<!-- Children props
+props.children represents the content between the tags of a Component.
+props.children can be an array or a single item.
+props.children can contain text and/or React Elements and/or React Components. -->
