@@ -11,7 +11,7 @@ Solo hay tambien ver los mensajes del commit que el
 propio GIT nos anhade (al hacer merge de una rama usa 'Merge
 branch').
 
-Lo mejor es que el mensaje del commit completeesta frase:
+Lo mejor es que el mensaje del commit complete esta frase:
 *Si aplico este commit, este commit va a "...   "*
 
   - ... add a new search feature
