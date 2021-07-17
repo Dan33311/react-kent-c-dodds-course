@@ -53,82 +53,88 @@ props.children represents the content between the tags of a Component.
 props.children can be an array or a single item.
 props.children can contain text and/or React Elements and/or React Components. -->
 
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
+    import React from "react";
+    import {render} from "react-dom";
 
+    function Button(props){
+      return <button>{props.children}</button>
+    }
+
+    const root = document.querySelector("#react-root");
+    render(<Button>Login</Button>, root);
+  </script>
+</body>
+<!-- Recap
+Props are an object, so you can destructure them.
+You can destructure the props in the argument -->
 
 
 <!-- Final Exercise free trial  -->
 
-<!-- // Button.js
-// --------
-import React from "react"
+<body>
+  <div id="root"></div>
+  <script src="https://unpkg.com/react@16.12.0/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+  <script type="text/babel">
 
-const Button = (props) => {
-    const {children, type, disabled} = props;
-    return <button type={type} className="ui-button" disabled={disabled}>{children}</button>
-} 
+    // Link.js
+    import React from "react";
 
-export default Button
+    export default function Link(props) {
+      const {children, href, disabled} = props;
+      return <a className="ui-link" href={href}>{children}</a>;
+    }
 
-// Container.js
-// --------
-import React from "react"
+    // Button.js
+    import React from "react";
 
-const Container = (props) => 
-    <div className="ui-container">{props.children}</div>
+    export default function Button(props) {
+      const {children, type, disabled} = props;
+      return <button className="ui-button" type={type} disabled={disabled}>{children}</button>;
+    }
 
-export default Container
+    // Container.js
+    import React from "react";
 
-// index.js
-// --------
-import React from "react";
-import {render} from "react-dom";
-import Link from "./Link.js"
-import Button from "./Button.js"
-import Container from "./Container.js"
-import Input from "./Input.js"
+    export default function Container(props) {
+      return <div className="ui-container">{props.children}</div>;
+    }
 
-function App() {
-    return (
-        <>
-            <Container>
-                <Link />
-                <Button />
-                <Input />
-            </ Container>
-        </>);
-}
+    // Input.js
+    import React from "react";
 
-render(<App />, document.querySelector("#react-root"));
+    export default function Input(props) {
+      // destructuring with default value
+      // https://codetogo.io/how-to-destructure-with-default-value-in-javascript/
+      const {type = "text", placeholder, name} = props;
+      return <input className="ui-textfield" type={type} placeholder={placeholder} name={name} />;
+    }
 
-// Input.js
-// --------
-import React from "react"
+    //index.js
+    import React from "react";
+    import {render} from "react-dom";
+    import Link from "./Link.js";
+    import Container from "./Container.js";
+    import Button from "./Button.js";
+    import Input from "./Input.js";
 
-const Input = (props) => {
-    const {type= "text", placeholder, name} = props;
-    return <input type={type} className="ui-textfield" placeholder={placeholder} name={name}></input>
-}
+    function App() {
+      return (<>
+        <Container>
+          <Link href="https://react-tutorial.app">React Tutorial</Link>
+          <Button disabled={true}>Login</Button>
+          <Input placeholder="Full Name" name="full_name" />
+        </Container>
+      </>);
+    }
 
-export default Input
-
-
-// Input.js
-// import React from "react";
-
-// export default function Input(props) {
-//     // destructuring with default value
-//     // https://codetogo.io/how-to-destructure-with-default-value-in-javascript/
-//     const {type = "text", placeholder, name} = props;
-//     return <input className="ui-textfield" type={type} placeholder={placeholder} name={name} />;
-// }
-
-// Link.js
-// --------
-import React from "react"
-
-const Link = (props) => {
-    const {children, href, disabled} = props;
-    return <a href={href} className="ui-link">{children}</a>
-}
-
-export default Link -->
+    render(<App />, document.querySelector("#react-root"));
+  </script>
+</body>

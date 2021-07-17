@@ -19,3 +19,16 @@ Lo mejor es que el mensaje del commit complete esta frase:
   - ... change de default system color
   - ... remove a random notification
 
+
+# 2. No uses punto final ni puntos suspensivos en tus mensajes:
+
+Usar puntuacion, mas alla de las comas, es innecesario a la
+hora de crear un buen mensaje de commit. Cada caracter cuenta
+a la hora de crear un buen mensaje de commit asi que no lo
+desperdicies con puntos innecesarios.
+
+git commit -m *Add new search feature.* # MAL.
+git commit -m *Fix a problem with the topbar...* # MAL...
+git commit -m *Change the default system color* # BIEN
+
+
